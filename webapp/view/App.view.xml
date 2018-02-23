@@ -1,0 +1,214 @@
+<mvc:View controllerName="cadaxo.ui5responsive-grid-layout-visualiser.controller.App" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Panel expandable="true" expanded="false" headerText="Settings" width="auto">
+						<f:Form id="form"
+							editable="true">
+							<f:layout>
+								<f:ResponsiveGridLayout
+									labelSpanXL="3"
+									labelSpanL="3"
+									labelSpanM="3"
+									labelSpanS="12"
+									adjustLabelSpan="false"
+									emptySpanXL="4"
+									emptySpanL="4"
+									emptySpanM="4"
+									emptySpanS="0"
+									columnsXL="1"
+									columnsL="1"
+									columnsM="1"
+									singleContainerFullSize="false" />
+							</f:layout>
+							<f:formContainers>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement label="width">
+											<f:fields>
+												<Input value="{visualiser>/width}" id="width"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="vSpacing">
+											<f:fields>
+												<Select
+													id="vSpacing"
+													selectedKey="{visualiser>/vSpacing/2/key}"
+													change="onSelectedSpacing"
+													items="{
+														path:'visualiser>/vSpacing'
+													}">
+													<items>
+														<core:Item key="{visualiser>key}" text="{visualiser>text}"></core:Item>
+													</items>
+												</Select>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="hSpacing">
+											<f:fields>
+												<Select
+													id="hSpacing"
+													selectedKey="{visualiser>/hSpacing/2/key}"
+													change="onSelectedSpacing"
+													items="{
+														path:'visualiser>/hSpacing'
+													}">
+													<items>
+														<core:Item key="{visualiser>key}" text="{visualiser>text}"></core:Item>
+													</items>
+												</Select>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="position">
+											<f:fields>
+												<Select
+													id="position"
+													selectedKey="{visualiser>/position/0/key}"
+													change="onSelectedPosition"
+													items="{
+														path:'visualiser>/position'
+													}">
+													<items>
+														<core:Item key="{visualiser>key}" text="{visualiser>text}"></core:Item>
+													</items>
+												</Select>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="defaultSpan">
+											<f:fields>
+												<Input value="{visualiser>/defaultSpan}" id="defaultSpan"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="defaultIndent">
+											<f:fields>
+												<Input value="{visualiser>/defaultIndent}" id="defaultIndent"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="containerQuery">
+											<f:fields>
+												<CheckBox selected="{visualiser>/containerQuery}" id="containerQuery"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="Link to">
+											<f:fields>
+												<Link target="_blank" text="sap.ui.layout.Grid API" href="https://sapui5.hana.ondemand.com/#/api/sap.ui.layout.Grid/constructor" />
+											</f:fields>
+										</f:FormElement>											
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+					</Panel>	
+					<Panel width="auto">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text="sap.ui.layout.Grid"/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+						<l:Grid
+							id="grid-id"
+							width="{visualiser>/width}"
+							position="{selector>/position}"
+							vSpacing="{selector>/vSpacing}"
+							hSpacing="{selector>/hSpacing}"
+							defaultSpan="{visualiser>/defaultSpan}"
+							defaultIndent="{visualiser>/defaultIndent}"
+							containerQuery="{visualiser>/containerQuery}">
+							<l:content>
+								<Text text="Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut
+								labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+								ea commodo consequat. Duis aute irure dolor in reprehenderit
+								in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+								officia deserunt mollit anim id est laborum.">
+								</Text>
+								<Text text="Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut
+								labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+								ea commodo consequat. Duis aute irure dolor in reprehenderit
+								in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+								officia deserunt mollit anim id est laborum.">
+								</Text>
+								<Text text="Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut
+								labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+								ea commodo consequat. Duis aute irure dolor in reprehenderit
+								in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+								officia deserunt mollit anim id est laborum.">
+								</Text>
+								<Text text="Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut
+								labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+								ea commodo consequat. Duis aute irure dolor in reprehenderit
+								in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+								officia deserunt mollit anim id est laborum.">
+								</Text>
+								<Text text="Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut
+								labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+								ea commodo consequat. Duis aute irure dolor in reprehenderit
+								in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+								officia deserunt mollit anim id est laborum.">
+								</Text>
+								<Text text="Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut
+								labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+								ea commodo consequat. Duis aute irure dolor in reprehenderit
+								in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+								officia deserunt mollit anim id est laborum.">
+								</Text>
+								<Text text="Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut
+								labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+								ea commodo consequat. Duis aute irure dolor in reprehenderit
+								in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+								officia deserunt mollit anim id est laborum.">
+								</Text>
+								<Text text="Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut
+								labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+								ea commodo consequat. Duis aute irure dolor in reprehenderit
+								in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+								officia deserunt mollit anim id est laborum.">
+								</Text>
+								<Input></Input>
+								<Input></Input>
+								<Input></Input>
+								<Input></Input>
+								<Input></Input>
+								<Input></Input>
+								<Input></Input>
+								<Input></Input>
+								<Image width="100%" src="assets/OpenUI5_newlogo_blue_vertical.png" alt="OpenUI5 Logo"></Image>
+								<Image width="100%" src="assets/OpenUI5_newlogo_blue_vertical.png" alt="OpenUI5 Logo"></Image>
+								<Image width="100%" src="assets/OpenUI5_newlogo_blue_vertical.png" alt="OpenUI5 Logo"></Image>
+								<Image width="100%" src="assets/OpenUI5_newlogo_blue_vertical.png" alt="OpenUI5 Logo"></Image>
+							</l:content>
+						</l:Grid>
+						</content>
+					</Panel>					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
